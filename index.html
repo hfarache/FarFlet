@@ -124,15 +124,15 @@
             color: #1e3c72;
             margin-bottom: 1rem;
         }
-        .hero-text p {
-            font-size: 1.1rem;
-            color: #555;
-        }
         .hero-text .slogan {
             font-size: 1.5rem;
             font-weight: 500;
             color: #ffb74d;
             margin: 1rem 0;
+        }
+        .hero-text .lema {
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
         /* Servicios */
         .services-grid {
@@ -162,9 +162,6 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: #1e3c72;
-        }
-        .service-card p {
-            color: #666;
         }
         /* Quiénes Somos */
         .about {
@@ -197,6 +194,75 @@
             font-size: 1.3rem;
             color: #1e3c72;
             margin-bottom: 0.5rem;
+        }
+        /* Galería - Carrusel */
+        .gallery-carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 1rem;
+        }
+        .gallery-container {
+            text-align: center;
+        }
+        .gallery-container img {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .gallery-container p {
+            margin-top: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1e3c72;
+        }
+        .gallery-prev, .gallery-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(30, 60, 114, 0.8);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        .gallery-prev:hover, .gallery-next:hover {
+            background: #ffb74d;
+            color: #1e3c72;
+        }
+        .gallery-prev {
+            left: 10px;
+        }
+        .gallery-next {
+            right: 10px;
+        }
+        .gallery-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 10px;
+        }
+        .gallery-indicators .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .gallery-indicators .dot.active {
+            background: #1e3c72;
         }
         /* Contacto */
         .contact-container {
@@ -280,6 +346,13 @@
             padding: 1.5rem;
             margin-top: 2rem;
         }
+        /* Error mensaje */
+        .error-message {
+            text-align: center;
+            padding: 3rem;
+            color: #b71c1c;
+            font-size: 1.2rem;
+        }
         /* Responsive */
         @media (max-width: 768px) {
             header {
@@ -310,160 +383,257 @@
 </head>
 <body>
     <header>
-        <div class="logo-container">
-            <!-- Logo de FARFL (imagen) -->
-            <img src="logo-farfl.png" alt="FARFLET">
-            <span>FARFLET</span>
+        <div class="logo-container" id="logo-container">
+            <!-- Se llena con JS -->
         </div>
         <nav>
-            <ul>
-                <li><a href="#inicio" class="active">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#quienes-somos">Quiénes Somos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+            <ul id="menu">
+                <!-- Se llena con JS -->
             </ul>
         </nav>
     </header>
 
-    <main>
-        <!-- Sección Inicio -->
-        <section id="inicio">
-            <div class="hero">
-                <div class="hero-image">
-                    <!-- Foto principal de FARFLET -->
-                    <img src="Farflet-foto.jpeg" alt="FARFLET - Fletes y mudanzas">
-                </div>
-                <div class="hero-text">
-                    <h2>FARFLET</h2>
-                    <p class="slogan">servicios de Fletes y mudanzas a todo el país</p>
-                    <p><strong>Experiencia, confianza, rapidez y seguridad</strong></p>
-                    <p>En <strong>FARFLET</strong> ofrecemos soluciones de transporte y mudanzas con la mayor eficiencia. Nuestra flota moderna y equipo profesional garantizan que tus bienes lleguen en perfectas condiciones. Solicita tu presupuesto sin compromiso.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Servicios -->
-        <section id="servicios">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-home"></i>
-                    <h3>Mudanzas</h3>
-                    <p>Mudanzas locales y de larga distancia. Embalaje, carga y desembalaje con cuidado profesional.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-boxes"></i>
-                    <h3>Transporte de Carga</h3>
-                    <p>Traslado de mercancías, muebles, maquinaria y artículos pesados con vehículos adecuados.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-archive"></i>
-                    <h3>Almacenaje</h3>
-                    <p>Depósito temporal de tus pertenencias en nuestras bodegas climatizadas y vigiladas.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-truck-loading"></i>
-                    <h3>Fletes Empresariales</h3>
-                    <p>Servicio de logística para empresas, distribución de productos y envíos programados.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Quiénes Somos -->
-        <section id="quienes-somos">
-            <h2 class="section-title">Quiénes Somos</h2>
-            <div class="about">
-                <p>En <strong>FARFLET</strong> somos una empresa con más de 15 años de experiencia en el sector de transporte y mudanzas. Nacimos con la misión de facilitar el traslado de bienes con un servicio confiable, rápido y accesible para todos.</p>
-                <p>Nuestro equipo está formado por profesionales capacitados que entienden la importancia de cada objeto que transportamos. Trabajamos con los más altos estándares de seguridad y atención al cliente.</p>
-                <div class="mission">
-                    <div class="mission-item">
-                        <i class="fas fa-bullseye"></i>
-                        <h4>Misión</h4>
-                        <p>Ofrecer soluciones de transporte eficientes, seguras y personalizadas, superando las expectativas de nuestros clientes.</p>
-                    </div>
-                    <div class="mission-item">
-                        <i class="fas fa-eye"></i>
-                        <h4>Visión</h4>
-                        <p>Ser la agencia de fletes líder en la región, reconocida por nuestra calidad, innovación y compromiso social.</p>
-                    </div>
-                    <div class="mission-item">
-                        <i class="fas fa-handshake"></i>
-                        <h4>Valores</h4>
-                        <p>Honestidad, responsabilidad, trabajo en equipo y mejora continua en cada servicio.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Contacto -->
-        <section id="contacto">
-            <h2 class="section-title">Contacto</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Estamos para servirte</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <span>Teléfono: <strong>(555) 123-4567</strong></span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-mobile-alt"></i>
-                        <span>Celular: <strong>(555) 987-6543</strong></span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>WhatsApp: <strong>(555) 987-6543</strong> <a href="https://wa.me/5559876543" target="_blank" style="color:#ffb74d;">(clic para chatear)</a></span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>Email: <strong>contacto@farflet.com</strong></span>
-                    </div>
-                    <div class="social-media">
-                        <h4>Síguenos en redes</h4>
-                        <div class="social-icons">
-                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-map">
-                    <!-- Google Maps con la dirección San Antonio 300, Barracas, CABA -->
-                    <iframe src="https://www.google.com/maps?q=San+Antonio+300+Barracas+CABA+Argentina&output=embed" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </section>
+    <main id="main-content">
+        <!-- Las secciones se generarán aquí -->
+        <div class="error-message" id="error-message" style="display: none;"></div>
     </main>
 
-    <footer>
-        <p>&copy; 2025 FARFLET - Todos los derechos reservados.</p>
+    <footer id="footer">
+        <!-- Se llena con JS -->
     </footer>
 
-    <!-- Script para resaltar pestaña activa -->
     <script>
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('nav ul li a');
+        (async function() {
+            try {
+                // Cargar datos.json
+                const response = await fetch('datos.json');
+                if (!response.ok) throw new Error('No se pudo cargar datos.json');
+                const datos = await response.json();
 
-        function activateLink() {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 120;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
+                // Construir encabezado
+                const logoContainer = document.getElementById('logo-container');
+                logoContainer.innerHTML = `
+                    <img src="${datos.empresa.logo}" alt="${datos.empresa.nombre}">
+                    <span>${datos.empresa.nombre}</span>
+                `;
+
+                // Menú
+                const menu = document.getElementById('menu');
+                menu.innerHTML = datos.menu.map(item => `
+                    <li><a href="#${item.id}">${item.texto}</a></li>
+                `).join('');
+
+                // Construir main
+                const main = document.getElementById('main-content');
+                main.innerHTML = ''; // limpiar posible error
+
+                // Sección Inicio
+                main.innerHTML += `
+                    <section id="inicio">
+                        <div class="hero">
+                            <div class="hero-image">
+                                <img src="${datos.inicio.imagen}" alt="${datos.empresa.nombre}">
+                            </div>
+                            <div class="hero-text">
+                                <h2>${datos.empresa.nombre}</h2>
+                                <p class="slogan">${datos.inicio.slogan}</p>
+                                <p class="lema">${datos.inicio.lema}</p>
+                                <p>${datos.inicio.descripcion}</p>
+                            </div>
+                        </div>
+                    </section>
+                `;
+
+                // Sección Servicios (solo activos)
+                const serviciosActivos = datos.servicios.filter(s => s.activo === true);
+                if (serviciosActivos.length > 0) {
+                    main.innerHTML += `
+                        <section id="servicios">
+                            <h2 class="section-title">${datos.textos.serviciosTitulo}</h2>
+                            <div class="services-grid">
+                                ${serviciosActivos.map(s => `
+                                    <div class="service-card">
+                                        <i class="${s.icono}"></i>
+                                        <h3>${s.titulo}</h3>
+                                        <p>${s.descripcion}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </section>
+                    `;
                 }
-            });
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
+                // Sección Quiénes Somos
+                main.innerHTML += `
+                    <section id="quienes-somos">
+                        <h2 class="section-title">${datos.textos.quienesSomosTitulo}</h2>
+                        <div class="about">
+                            <p>${datos.quienesSomos.descripcion1}</p>
+                            <p>${datos.quienesSomos.descripcion2}</p>
+                            <div class="mission">
+                                <div class="mission-item">
+                                    <i class="fas fa-bullseye"></i>
+                                    <h4>Misión</h4>
+                                    <p>${datos.quienesSomos.mision}</p>
+                                </div>
+                                <div class="mission-item">
+                                    <i class="fas fa-eye"></i>
+                                    <h4>Visión</h4>
+                                    <p>${datos.quienesSomos.vision}</p>
+                                </div>
+                                <div class="mission-item">
+                                    <i class="fas fa-handshake"></i>
+                                    <h4>Valores</h4>
+                                    <p>${datos.quienesSomos.valores}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                `;
+
+                // Sección Galería (carrusel)
+                if (datos.galeria && datos.galeria.length > 0) {
+                    main.innerHTML += `
+                        <section id="galeria">
+                            <h2 class="section-title">${datos.textos.galeriaTitulo}</h2>
+                            <div class="gallery-carousel">
+                                <div class="gallery-container">
+                                    <img id="gallery-image" src="" alt="">
+                                    <p id="gallery-title"></p>
+                                </div>
+                                <button class="gallery-prev" aria-label="Anterior">&lt;</button>
+                                <button class="gallery-next" aria-label="Siguiente">&gt;</button>
+                            </div>
+                            <div class="gallery-indicators" id="gallery-indicators"></div>
+                        </section>
+                    `;
                 }
-            });
-        }
 
-        window.addEventListener('scroll', activateLink);
-        window.addEventListener('load', activateLink);
+                // Sección Contacto
+                const contacto = datos.contacto;
+                const redes = contacto.redes;
+                main.innerHTML += `
+                    <section id="contacto">
+                        <h2 class="section-title">${datos.textos.contactoTitulo}</h2>
+                        <div class="contact-container">
+                            <div class="contact-info">
+                                <h3>${contacto.subtitulo}</h3>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <span>Teléfono: <strong>${contacto.telefono}</strong></span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Celular: <strong>${contacto.celular}</strong></span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <span>WhatsApp: <strong>${contacto.whatsapp}</strong> <a href="https://wa.me/${contacto.whatsapp.replace(/\D/g,'')}" target="_blank" style="color:#ffb74d;">(clic para chatear)</a></span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Email: <strong>${contacto.email}</strong></span>
+                                </div>
+                                <div class="social-media">
+                                    <h4>Síguenos en redes</h4>
+                                    <div class="social-icons">
+                                        <a href="${redes.facebook}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="${redes.instagram}" target="_blank"><i class="fab fa-instagram"></i></a>
+                                        <a href="${redes.twitter}" target="_blank"><i class="fab fa-twitter"></i></a>
+                                        <a href="${redes.linkedin}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-map">
+                                <iframe src="${contacto.mapaEmbed}" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </section>
+                `;
+
+                // Footer
+                document.getElementById('footer').innerHTML = `<p>${datos.footer}</p>`;
+
+                // --- Inicializar galería carrusel ---
+                if (datos.galeria && datos.galeria.length > 0) {
+                    // Definir extensión de las imágenes (puede ser 'jpg' o 'png')
+                    const extension = 'jpg'; // Cambia a 'png' si tus imágenes son PNG
+                    
+                    const images = datos.galeria.map(item => ({
+                        src: `Galeria/${item.archivo}.${extension}`,
+                        title: item.titulo
+                    }));
+
+                    let currentIndex = 0;
+                    const imgElement = document.getElementById('gallery-image');
+                    const titleElement = document.getElementById('gallery-title');
+                    const prevBtn = document.querySelector('.gallery-prev');
+                    const nextBtn = document.querySelector('.gallery-next');
+                    const indicatorsContainer = document.getElementById('gallery-indicators');
+
+                    function updateGallery(index) {
+                        if (index < 0) index = images.length - 1;
+                        if (index >= images.length) index = 0;
+                        currentIndex = index;
+                        imgElement.src = images[currentIndex].src;
+                        imgElement.alt = images[currentIndex].title;
+                        titleElement.textContent = images[currentIndex].title;
+                        // Actualizar indicadores
+                        const dots = indicatorsContainer.querySelectorAll('.dot');
+                        dots.forEach((dot, i) => {
+                            dot.classList.toggle('active', i === currentIndex);
+                        });
+                    }
+
+                    // Crear indicadores
+                    indicatorsContainer.innerHTML = '';
+                    images.forEach((_, i) => {
+                        const dot = document.createElement('span');
+                        dot.classList.add('dot');
+                        if (i === currentIndex) dot.classList.add('active');
+                        dot.addEventListener('click', () => updateGallery(i));
+                        indicatorsContainer.appendChild(dot);
+                    });
+
+                    // Eventos de botones
+                    prevBtn.addEventListener('click', () => updateGallery(currentIndex - 1));
+                    nextBtn.addEventListener('click', () => updateGallery(currentIndex + 1));
+
+                    // Mostrar primera imagen
+                    updateGallery(0);
+                }
+
+                // Activar resaltado de menú
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('nav ul li a');
+
+                function activateLink() {
+                    let current = '';
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop - 120;
+                        const sectionHeight = section.clientHeight;
+                        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                            current = section.getAttribute('id');
+                        }
+                    });
+
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${current}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+
+                window.addEventListener('scroll', activateLink);
+                window.addEventListener('load', activateLink);
+
+            } catch (error) {
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('error-message').innerText = 'Error al cargar la configuración. Asegúrate de que datos.json existe y es válido.';
+                console.error(error);
+            }
+        })();
     </script>
 </body>
 </html>
