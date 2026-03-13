@@ -36,13 +36,13 @@
             "descripcion": "Traslado de mercancías, muebles, maquinaria y artículos pesados con vehículos adecuados."
         },
         {
-            "activo": false,
+            "activo": true,
             "icono": "fas fa-archive",
             "titulo": "Almacenaje",
             "descripcion": "Depósito temporal de tus pertenencias en nuestras bodegas climatizadas y vigiladas."
         },
         {
-            "activo": false,
+            "activo": true,
             "icono": "fas fa-truck-loading",
             "titulo": "Fletes Empresariales",
             "descripcion": "Servicio de logística para empresas, distribución de productos y envíos programados."
@@ -82,4 +82,5 @@
         }
     },
     "footer": "© 2025 FARFLET - Todos los derechos reservados."
+
 }
