@@ -20,7 +20,7 @@
         "imagen": "Farflet-foto.jpeg",
         "slogan": "servicios de Fletes y mudanzas a todo el país",
         "lema": "Experiencia, confianza, rapidez y seguridad",
-        "descripcion": "En FARFLET ofrecemos soluciones de transporte y mudanzas con la mayor eficiencia. Nuestra flota moderna y equipo profesional garantizan que tus bienes lleguen en perfectas condiciones. Solicita tu presupuesto sin compromiso."
+        "descripcion": "En FARFLET somos especialistas en transporte, fletes y mudanzas con cobertura en todo el país y países limítrofes. Contamos con una flota de vehículos modernos y equipados para garantizar que tus bienes lleguen a destino de forma segura y puntual. Ya sea que necesites trasladar tu hogar, tu negocio o cargas de gran porte, nuestro equipo profesional está listo para brindarte un servicio eficiente, con la confianza que solo la experiencia puede dar. Viajamos a cualquier punto de Argentina y países vecinos, llevando tu tranquilidad a donde la necesites."
     },
     "servicios": [
         {
@@ -36,13 +36,13 @@
             "descripcion": "Traslado de mercancías, muebles, maquinaria y artículos pesados con vehículos adecuados."
         },
         {
-            "activo": true,
+            "activo": false,
             "icono": "fas fa-archive",
             "titulo": "Almacenaje",
             "descripcion": "Depósito temporal de tus pertenencias en nuestras bodegas climatizadas y vigiladas."
         },
         {
-            "activo": true,
+            "activo": false,
             "icono": "fas fa-truck-loading",
             "titulo": "Fletes Empresariales",
             "descripcion": "Servicio de logística para empresas, distribución de productos y envíos programados."
@@ -65,23 +65,30 @@
         { "archivo": "farflet07", "titulo": "Carga segura" },
         { "archivo": "farflet08", "titulo": "Flota moderna" },
         { "archivo": "farflet09", "titulo": "Carga segura" },
-        { "archivo": "farflet10", "titulo": "Flota moderna" }
+        { "archivo": "farflet10", "titulo": "Flota moderna" },
+        {
+			    "tipo": "video",
+			    "url": "Galeria/farflet11.mp4",
+			    "titulo": "Nuestro trabajo en acción"
+				},
+        { "archivo": "farflet12", "titulo": "Satisfaccion garantizada" },
+        { "archivo": "farflet13", "titulo": "Lo entregamos todo" },
+        { "archivo": "farflet14", "titulo": "Personal calificado" }
+
     ],
     "contacto": {
         "subtitulo": "Estamos para servirte",
-        "telefono": "(555) 123-4567",
-        "celular": "(555) 987-6543",
-        "whatsapp": "(555) 987-6543",
-        "email": "contacto@farflet.com",
+        "telefono": "(549) 1150036117",
+        "celular": "(549) 1150036117",
+        "whatsapp": "(549) 1150036117",
+        "email": "farflet@hotmail.com",
         "mapaEmbed": "https://www.google.com/maps?q=San+Antonio+300+Barracas+CABA+Argentina&output=embed",
         "redes": {
-            "facebook": "#",
-            "instagram": "#",
+            "facebook": "https://www.facebook.com/farflet.mudanzas.fletes/",
+            "instagram": "https://www.instagram.com/farflet/",
             "twitter": "#",
             "linkedin": "#"
         }
     },
     "footer": "© 2025 FARFLET - Todos los derechos reservados."
-
 }
-

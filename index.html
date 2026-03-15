@@ -148,6 +148,8 @@
             padding: 2rem 1.5rem;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
         }
         .service-card:hover {
             transform: translateY(-5px);
@@ -162,6 +164,29 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: #1e3c72;
+        }
+        .service-card p {
+            color: #666;
+            flex-grow: 1;
+        }
+        .coverage-badge {
+            margin-top: 1rem;
+            background: #e3f2fd;
+            color: #1e3c72;
+            padding: 0.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            border: 1px solid #1e3c7220;
+        }
+        .coverage-badge i {
+            font-size: 1rem;
+            margin: 0;
+            color: #ffb74d;
         }
         /* Quiénes Somos */
         .about {
@@ -207,11 +232,28 @@
         }
         .gallery-container {
             text-align: center;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         .gallery-container img {
             max-width: 100%;
             max-height: 500px;
             object-fit: contain;
+            border-radius: 8px;
+        }
+        .gallery-container iframe {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border: none;
+            border-radius: 8px;
+        }
+        .gallery-container video {
+            max-width: 100%;
+            max-height: 500px;
             border-radius: 8px;
         }
         .gallery-container p {
@@ -378,6 +420,9 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
+            .gallery-container iframe {
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -456,6 +501,9 @@
                                         <i class="${s.icono}"></i>
                                         <h3>${s.titulo}</h3>
                                         <p>${s.descripcion}</p>
+                                        <div class="coverage-badge">
+                                            <i class="fas fa-globe-americas"></i> Cobertura: Argentina y países limítrofes
+                                        </div>
                                     </div>
                                 `).join('')}
                             </div>
@@ -498,7 +546,7 @@
                             <h2 class="section-title">${datos.textos.galeriaTitulo}</h2>
                             <div class="gallery-carousel">
                                 <div class="gallery-container">
-                                    <img id="gallery-image" src="" alt="">
+                                    <div id="gallery-media"></div>
                                     <p id="gallery-title"></p>
                                 </div>
                                 <button class="gallery-prev" aria-label="Anterior">&lt;</button>
@@ -554,30 +602,74 @@
                 // Footer
                 document.getElementById('footer').innerHTML = `<p>${datos.footer}</p>`;
 
-                // --- Inicializar galería carrusel ---
+                // --- Inicializar galería carrusel (soporte para imágenes y videos) ---
                 if (datos.galeria && datos.galeria.length > 0) {
-                    // Definir extensión de las imágenes (puede ser 'jpg' o 'png')
+                    // Definir extensión por defecto para imágenes
                     const extension = 'jpg'; // Cambia a 'png' si tus imágenes son PNG
                     
-                    const images = datos.galeria.map(item => ({
-                        src: `Galeria/${item.archivo}.${extension}`,
-                        title: item.titulo
-                    }));
+                    // Procesar items de la galería: cada item puede tener tipo "imagen" (por defecto) o "video"
+                    const items = datos.galeria.map(item => {
+                        if (item.tipo === 'video') {
+                            // Para video, esperamos una URL (puede ser de YouTube o video local)
+                            return {
+                                tipo: 'video',
+                                url: item.url, // campo que debería existir en el JSON
+                                titulo: item.titulo || 'Video promocional'
+                            };
+                        } else {
+                            // Imagen: construimos la ruta
+                            return {
+                                tipo: 'imagen',
+                                src: `Galeria/${item.archivo}.${extension}`,
+                                titulo: item.titulo
+                            };
+                        }
+                    });
 
                     let currentIndex = 0;
-                    const imgElement = document.getElementById('gallery-image');
+                    const mediaContainer = document.getElementById('gallery-media');
                     const titleElement = document.getElementById('gallery-title');
                     const prevBtn = document.querySelector('.gallery-prev');
                     const nextBtn = document.querySelector('.gallery-next');
                     const indicatorsContainer = document.getElementById('gallery-indicators');
 
                     function updateGallery(index) {
-                        if (index < 0) index = images.length - 1;
-                        if (index >= images.length) index = 0;
+                        if (index < 0) index = items.length - 1;
+                        if (index >= items.length) index = 0;
                         currentIndex = index;
-                        imgElement.src = images[currentIndex].src;
-                        imgElement.alt = images[currentIndex].title;
-                        titleElement.textContent = images[currentIndex].title;
+                        const item = items[currentIndex];
+                        
+                        // Limpiar contenedor
+                        mediaContainer.innerHTML = '';
+                        
+                        if (item.tipo === 'video') {
+                            // Insertar iframe para video de YouTube o video local
+                            if (item.url.includes('youtube.com') || item.url.includes('youtu.be')) {
+                                // Convertir a embed si es necesario (asumimos que ya es embed)
+                                const iframe = document.createElement('iframe');
+                                iframe.src = item.url;
+                                iframe.allowFullscreen = true;
+                                iframe.loading = 'lazy';
+                                mediaContainer.appendChild(iframe);
+                            } else {
+                                // Video local
+                                const video = document.createElement('video');
+                                video.src = item.url;
+                                video.controls = true;
+                                video.loading = 'lazy';
+                                mediaContainer.appendChild(video);
+                            }
+                        } else {
+                            // Imagen
+                            const img = document.createElement('img');
+                            img.src = item.src;
+                            img.alt = item.titulo;
+                            img.loading = 'lazy';
+                            mediaContainer.appendChild(img);
+                        }
+                        
+                        titleElement.textContent = item.titulo;
+                        
                         // Actualizar indicadores
                         const dots = indicatorsContainer.querySelectorAll('.dot');
                         dots.forEach((dot, i) => {
@@ -587,7 +679,7 @@
 
                     // Crear indicadores
                     indicatorsContainer.innerHTML = '';
-                    images.forEach((_, i) => {
+                    items.forEach((_, i) => {
                         const dot = document.createElement('span');
                         dot.classList.add('dot');
                         if (i === currentIndex) dot.classList.add('active');
@@ -599,7 +691,7 @@
                     prevBtn.addEventListener('click', () => updateGallery(currentIndex - 1));
                     nextBtn.addEventListener('click', () => updateGallery(currentIndex + 1));
 
-                    // Mostrar primera imagen
+                    // Mostrar primer elemento
                     updateGallery(0);
                 }
 
