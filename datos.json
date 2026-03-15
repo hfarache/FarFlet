@@ -71,9 +71,11 @@
 			    "url": "Galeria/farflet11.mp4",
 			    "titulo": "Nuestro trabajo en acción"
 				},
-        { "archivo": "farflet12", "titulo": "Satisfaccion garantizada" },
-        { "archivo": "farflet13", "titulo": "Lo entregamos todo" },
-        { "archivo": "farflet14", "titulo": "Personal calificado" }
+        { "archivo": "farflet15", "titulo": "Satisfaccion garantizada" },
+        { "archivo": "farflet16", "titulo": "Lo entregamos todo" },       
+        { "archivo": "farflet17", "titulo": "Lo entregamos todo" },
+        { "archivo": "farflet18", "titulo": "Personal calificado" },
+        { "archivo": "farflet19", "titulo": "Lo entregamos todo" }
 
     ],
     "contacto": {
