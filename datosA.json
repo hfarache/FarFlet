@@ -1,0 +1,119 @@
+{
+    "empresa": {
+        "nombre": "FARFLET",
+        "logo": "logo-farfl.png"
+    },
+    "menu": [
+        { "id": "inicio", "texto": "Inicio" },
+        { "id": "servicios", "texto": "Servicios" },
+        { "id": "quienes-somos", "texto": "Quiénes Somos" },
+        { "id": "galeria", "texto": "Galería" },
+        { "id": "contacto", "texto": "Contacto" },
+        { "id": "opiniones", "texto": "Opiniones" }
+    ],
+    "textos": {
+        "serviciosTitulo": "Nuestros Servicios",
+        "quienesSomosTitulo": "Quiénes Somos",
+        "galeriaTitulo": "Galería de Fotos",
+        "contactoTitulo": "Contacto"
+    },
+    "inicio": {
+        "imagen": "Farflet-foto.jpeg",
+        "slogan": "servicios de Fletes y mudanzas a todo el país",
+        "lema": "Experiencia, confianza, rapidez y seguridad",
+        "descripcion": "En FARFLET somos especialistas en transporte, fletes y mudanzas con cobertura en todo el país y países limítrofes. Contamos con una flota de vehículos modernos y equipados para garantizar que tus bienes lleguen a destino de forma segura y puntual. Ya sea que necesites trasladar tu hogar, tu negocio o cargas de gran porte, nuestro equipo profesional está listo para brindarte un servicio eficiente, con la confianza que solo la experiencia puede dar. Viajamos a cualquier punto de Argentina y países vecinos, llevando tu tranquilidad a donde la necesites."
+    },
+    "servicios": [
+        {
+            "activo": true,
+            "icono": "fas fa-home",
+            "titulo": "Mudanzas",
+            "descripcion": "Mudanzas locales y de larga distancia. Embalaje, carga y desembalaje con cuidado profesional."
+        },
+        {
+            "activo": true,
+            "icono": "fas fa-boxes",
+            "titulo": "Transporte de Carga",
+            "descripcion": "Traslado de mercancías, muebles, maquinaria y artículos pesados con vehículos adecuados."
+        },
+        {
+            "activo": false,
+            "icono": "fas fa-archive",
+            "titulo": "Almacenaje",
+            "descripcion": "Depósito temporal de tus pertenencias en nuestras bodegas climatizadas y vigiladas."
+        },
+        {
+            "activo": false,
+            "icono": "fas fa-truck-loading",
+            "titulo": "Fletes Empresariales",
+            "descripcion": "Servicio de logística para empresas, distribución de productos y envíos programados."
+        }
+    ],
+    "quienesSomos": {
+        "descripcion1": "En FARFLET somos una empresa con más de 15 años de experiencia en el sector de transporte y mudanzas. Nacimos con la misión de facilitar el traslado de bienes con un servicio confiable, rápido y accesible para todos.",
+        "descripcion2": "Nuestro equipo está formado por profesionales capacitados que entienden la importancia de cada objeto que transportamos. Trabajamos con los más altos estándares de seguridad y atención al cliente.",
+        "mision": "Ofrecer soluciones de transporte eficientes, seguras y personalizadas, superando las expectativas de nuestros clientes.",
+        "vision": "Ser la agencia de fletes líder en la región, reconocida por nuestra calidad, innovación y compromiso social.",
+        "valores": "Honestidad, responsabilidad, trabajo en equipo y mejora continua en cada servicio."
+    },
+    "galeria": [
+        { "archivo": "farflet01", "titulo": "Camión de mudanzas" },
+        { "archivo": "farflet02", "titulo": "Equipo de trabajo" },
+        { "archivo": "farflet03", "titulo": "Carga segura" },
+        { "archivo": "farflet04", "titulo": "Flota moderna" },
+        { "archivo": "farflet05", "titulo": "Camión de mudanzas" },
+        { "archivo": "farflet06", "titulo": "Equipo de trabajo" },
+        { "archivo": "farflet07", "titulo": "Carga segura" },
+        { "archivo": "farflet08", "titulo": "Flota moderna" },
+        { "archivo": "farflet09", "titulo": "Carga segura" },
+        { "archivo": "farflet10", "titulo": "Flota moderna" },
+        {
+			    "tipo": "video",
+			    "url": "Galeria/farflet11.mp4",
+			    "titulo": "Nuestro trabajo en acción"
+				},
+        { "archivo": "farflet16", "titulo": "Lo entregamos todo" },       
+        { "archivo": "farflet17", "titulo": "Lo entregamos todo" },
+        { "archivo": "farflet19", "titulo": "Lo entregamos todo" }
+
+    ],
+    "contacto": {
+        "subtitulo": "Estamos para servirte",
+        "telefono": "(549) 1150036117",
+        "celular": "(549) 1150036117",
+        "whatsapp": "(549) 1150036117",
+        "email": "farflet@hotmail.com",
+        "mapaEmbed": "https://www.google.com/maps?q=San+Antonio+300+Barracas+CABA+Argentina&output=embed",
+        "redes": {
+            "facebook": "https://www.facebook.com/farflet.mudanzas.fletes/",
+            "instagram": "https://www.instagram.com/farflet/",
+            "twitter": "#",
+            "linkedin": "#"
+        }
+    },
+    "opiniones": {
+        "titulo": "Opiniones de nuestros clientes",
+        "formUrl": "https://forms.gle/B5AdTV9rD3oQvSn57",
+        "lista": [
+        {
+        "nombre": "Juan Pérez",
+        "fecha": "15/03/2025",
+        "calificacion": 5,
+        "comentario": "Excelente servicio, llegaron antes de lo previsto y muy cuidadosos."
+        },
+        {
+        "nombre": "María Gómez",
+        "fecha": "10/03/2025",
+        "calificacion": 4,
+        "comentario": "Muy buena atención, solo un pequeño retraso pero todo bien."
+        },
+        {
+        "nombre": "Horacio Jose",
+        "fecha": "14/04/2026",
+        "calificacion": 4,
+        "comentario": "Impecable."
+        }
+        ]
+    },
+    "footer": "© 2026 HJF&Deep - Todos los derechos reservados."
+}

@@ -424,6 +424,67 @@
                 height: 200px;
             }
         }
+        
+        /* Opiniones */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .review-card {
+            background: var(--color-blanco);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--sombra);
+            transition: transform 0.3s;
+        }
+        .review-card:hover {
+            transform: translateY(-3px);
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--color-primario);
+        }
+        .review-date {
+            font-size: 0.8rem;
+            color: #888;
+        }
+        .review-stars {
+            margin-bottom: 0.8rem;
+            letter-spacing: 2px;
+        }
+        .review-comment {
+            font-style: italic;
+            color: var(--color-texto-claro);
+            line-height: 1.4;
+        }
+        .no-reviews {
+            text-align: center;
+            color: #888;
+            margin: 2rem 0;
+        }
+        .review-button-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .btn-review {
+            display: inline-block;
+            background-color: var(--color-secundario);
+            color: var(--color-primario);
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .btn-review:hover {
+            background-color: #ffa000;
+            transform: scale(1.02);
+        }
     </style>
 </head>
 <body>
@@ -451,7 +512,7 @@
         (async function() {
             try {
                 // Cargar datos.json
-                const response = await fetch('datos.json');
+                const response = await fetch('datosA.json');
                 if (!response.ok) throw new Error('No se pudo cargar datos.json');
                 const datos = await response.json();
 
@@ -599,6 +660,36 @@
                     </section>
                 `;
 
+                // Sección Opiniones
+                if (datos.opiniones) {
+                    let reviewsHtml = '';
+                    if (datos.opiniones.lista && datos.opiniones.lista.length > 0) {
+                        reviewsHtml = `<div class="reviews-grid">
+                            ${datos.opiniones.lista.map(review => `
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <strong>${review.nombre}</strong>
+                                        <span class="review-date">${review.fecha}</span>
+                                    </div>
+                                    <div class="review-stars">${renderStars(review.calificacion)}</div>
+                                    <p class="review-comment">"${review.comentario}"</p>
+                                </div>
+                            `).join('')}
+                        </div>`;
+                    } else {
+                        reviewsHtml = `<p class="no-reviews">Todavía no hay opiniones. ¡Sé el primero en dejar la tuya!</p>`;
+                    }
+                    main.innerHTML += `
+                        <section id="opiniones">
+                            <h2 class="section-title">${datos.opiniones.titulo}</h2>
+                            ${reviewsHtml}
+                            <div class="review-button-container">
+                                <a href="${datos.opiniones.formUrl}" target="_blank" class="btn-review"> Dejar tu opinión</a>
+                            </div>
+                        </section>
+                    `;
+                }
+
                 // Footer
                 document.getElementById('footer').innerHTML = `<p>${datos.footer}</p>`;
 
@@ -715,6 +806,13 @@
                             link.classList.add('active');
                         }
                     });
+                }
+                function renderStars(rating) {
+                    let stars = '';
+                    for (let i = 1; i <= 5; i++) {
+                        stars += i <= rating ? '<i class="fas fa-star" style="color: #ffb74d;"></i>' : '<i class="far fa-star" style="color: #ccc;"></i>';
+                    }
+                    return stars;
                 }
 
                 window.addEventListener('scroll', activateLink);
